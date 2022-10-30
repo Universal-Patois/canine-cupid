@@ -9,20 +9,17 @@ export const fetchDogData = async () => {
     const data = await response.json()
     
     if(!response.ok) {
-      throw new Error('Data could not be')
-      console.log(data.description)
-      return;
+      throw Error('Data could not be fetched')
     }
-    
-    console.log(data)
+    return data
   } catch(error) {
     console.log(error)
+    // error => this.props.setState({error: error})
   }
 }
 
 // export const fetchDogData = () => {
-//   fetch('https://api.thedogapi.com/v1/breeds', 
-//   {
+//   fetch('https://api.thedogapi.com/v1/breeds', {
 //     method: 'GET',
 //     headers: new Headers({
 //       'x-api-key': 'live_nyndlWo6xS4OlXnfyjh3wossGpTP0EL3m5D24PUwvXibPzqbWeQ8vWrFSPsG0UgV'
@@ -30,7 +27,6 @@ export const fetchDogData = async () => {
 //   })
 //   .then(response => response.json())
 // }
-
 
 
 //Api key

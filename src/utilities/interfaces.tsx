@@ -1,4 +1,6 @@
 export interface dogData {
+  [x: string]: any
+  slice(arg0: number, arg1: number): unknown
   weight: {
     imperial: string,
     metric: string

@@ -1,9 +1,11 @@
 import React from "react";
 
-const Dog = () => {
+const Dog = ({image, breed}: { image: string; breed: string}) => {
+
   return (
     <main>
-      <h3 className="dog-breed"></h3>
+      <img alt="dog" className="featured-dog">{image}</img>
+      <h3 className="dog-breed">{breed}</h3>
     </main>
   )
 }
