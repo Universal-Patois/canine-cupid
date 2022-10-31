@@ -1,0 +1,41 @@
+html {
+  background-color: white;
+  height: 100%;
+}
+body {
+  background-color: #F1AC88
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 7rem;
+  height: 7rem;
+}
+
+.app-title {
+  color: #2F2976;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

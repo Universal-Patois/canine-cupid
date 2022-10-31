@@ -1,32 +1,11 @@
+import { dogData } from "../../utilities/interfaces";
 import './MoodForm.css'
-interface dogData {
-    weight: {
-      imperial: string,
-      metric: string
-      },
-    height: {
-      imperial: string,
-      metric: string
-      },
-    id: number,
-    name: string,
-    bred_for: string,
-    breed_group: string,
-    life_span: string,
-    temperament: string,
-    origin: string,
-    reference_image_id: string,
-    image: {
-      id: string,
-      width: number,
-      height: number,
-      url: string
-      }
-    
-  }
+import { Link } from 'react-router-dom'
 
-const MoodForm = ({ dogs }: {dogs: dogData[]}) => {
-    let checkedMoods: string[] = []
+
+
+const MoodForm = ({ dogs, filterDogsByTemperament }: {dogs: dogData[], filterDogsByTemperament: Function}) => {
+  let checkedMoods: string[] = []
     const handleChange = (event: any) => {
         if(checkedMoods.length === 10) {
             alert('You can only choose 10 moods!')
@@ -54,31 +33,30 @@ const MoodForm = ({ dogs }: {dogs: dogData[]}) => {
     })
        const moodForm = uniqueMoods.map((mood: string) => {
 return (
-
-<div className="mood-buttons">
-
-
-  <div>
-    <input
-      type="checkbox"
-      key={mood}
-      value={mood}
-      name={mood}
-      onClick={e => handleChange(e)}
-    />
+  <div className="mood-buttons">
+    <div>
+      <input
+        type="checkbox"
+        key={mood}
+        value={mood}
+        name={mood}
+        onClick={e => handleChange(e)}
+      />
+    </div>
+    <label>{mood}</label>
   </div>
-  <label>{mood}</label>
-</div>
 )
 
         })
         return (
             <div className='mood-form'>
-                <h2>Choose 10 Moods:</h2>
+                <h2>Choose up to 10 Moods:</h2>
                 <div className='mood-form-checkbox'>
                 {moodForm}
                 </div>
-                <button className='submit-button'>Find A Match!</button>
+                <Link to ='/matches'>
+                <button className='submit-button' onClick={() => filterDogsByTemperament(checkedMoods)}>Find A Match!</button>
+                </Link>
             </div>
         
     )
