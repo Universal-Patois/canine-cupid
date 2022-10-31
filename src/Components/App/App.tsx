@@ -4,6 +4,8 @@ import { Props} from '../../utilities/interfaces'
 import FeaturedDogs from '../FeaturedDogs/FeaturedDogs'
 import './App.css'
 
+
+
 class App extends React.Component<{}, {dogs: [], error: string}> {
   constructor(props: Props) {
     super(props)

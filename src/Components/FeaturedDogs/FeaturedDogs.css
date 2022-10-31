@@ -1,0 +1,33 @@
+.featured {
+  background-color: #F1AC88;
+}
+
+.featured-dogs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+border-width:2px;
+border-style:solid;
+border-color:red;
+background-color: #dc7d4a;
+/* background-color: rgb(192, 117, 93) */
+
+}
+
+.featured-dogs {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #FC766A;
+}
+
+.dog-image {
+  width: 6rem;
+  height: 6rem
+}
+
+.dog-name {
+  background-color: 
+  #FC766A;
+
+  font-size: smaller;
+}
