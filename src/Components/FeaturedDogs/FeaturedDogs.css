@@ -3,21 +3,21 @@
 }
 
 .featured-dogs-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr ;
 border-width:2px;
 border-style:solid;
 border-color:red;
-background-color: #dc7d4a;
-/* background-color: rgb(192, 117, 93) */
-
+background-color: #5457A6;
+width: 80vw;
 }
 
-.featured-dogs {
+.individual-featured-dog {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1rem;
-  border: 1px solid #FC766A;
+  border: 1px solid #292566;
 }
 
 .dog-image {

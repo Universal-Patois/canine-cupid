@@ -10,13 +10,6 @@ import "./Matches.css";
 import info from "../../assets/info.png";
 import animal from "../../assets/info.png";
 
-type MatchDog = {
-  id: number;
-  name: string;
-  image: string;
-  favorite: boolean;
-};
-
 const Matches = ({
   filteredDogs,
   onFavorite,
@@ -25,8 +18,7 @@ const Matches = ({
   onFavorite: (id: number) => void;
 }) => {
   const handleClick = (event: any) => {
-    // onFavorite(event.target.id);
-    console.log(event.target.id);
+    onFavorite(event.target.getAttribute("data-id"));
   };
 
   const createSwiperSlides = () => {
@@ -40,7 +32,7 @@ const Matches = ({
             <img
               src={animal}
               alt="favorite"
-              id={dog.id}
+              data-id={dog.id}
               className="favorite-image"
               onClick={handleClick}
             />
