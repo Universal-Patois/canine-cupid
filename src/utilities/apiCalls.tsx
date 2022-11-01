@@ -17,5 +17,5 @@ export const fetchErrorImage = async (codeNumber: number) => {
   if(!response.ok) {
     throw Error(response.status + ":" + response.text);
   }
-  return response.url
+  return await response.url
 };
