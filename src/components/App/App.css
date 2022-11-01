@@ -2,6 +2,9 @@ html {
   background-color: white;
   height: 100%;
 }
+body {
+  background-color: #F1AC88
+}
 
 .App {
   display: flex;
@@ -17,6 +20,10 @@ nav {
   align-items: center;
   justify-content: space-evenly;
 }
+.logo-title {
+  display: flex;
+  align-items: center;
+}
 
 .logo {
   width: 7rem;
@@ -25,4 +32,10 @@ nav {
 
 .app-title {
   color: #2F2976;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
