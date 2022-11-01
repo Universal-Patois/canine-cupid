@@ -1,19 +1,19 @@
-// import Dog from "../Dog/Dog";
+import React from 'react';
 import { dogData } from "../../utilities/interfaces";
+import Dog from '../Dog/Dog'
 import './FeaturedDogs.css'
 
-const FeaturedDogs = ({dogs}: {dogs: dogData[]}): any => {
+const FeaturedDogs = ({dogs, onFavorite}: {dogs: dogData[]; onFavorite: (id:number) => void}): any => {
   const randomDogs = dogs.sort(() => 0.5 - Math.random()).slice(0,8)
-  const showFeaturedDogs = randomDogs.map((dog: { image: {height: number; id: string; url: string; width: number }; name: string; id: number}) => {
-      // console.log(dogs[0].image.url)
+  const showFeaturedDogs = randomDogs.map((dog: dogData) => {
     return (
-      <div className="individual-featured-dog" key={dog.id}>
-        <img className="dog-image"
-        src={dog.image.url}
-        alt="dog"
-        />
-        <h3 className="dog-name">{dog.name}</h3>
-      </div>
+      <Dog 
+        key={dog.id}
+        image = {dog.image.url}
+        breed = {dog.name}
+        id = {dog.id}
+        onFavorite = {onFavorite}
+      />
       )
     })
 
