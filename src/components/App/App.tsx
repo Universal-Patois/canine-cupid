@@ -16,6 +16,7 @@ type appState = {
   favorites: number[]
   error: string
   errorStatus: number
+  errorImageURL: string
 }
 
 class App extends Component<{}, appState> {
@@ -26,7 +27,8 @@ class App extends Component<{}, appState> {
       filteredDogs: [],
       favorites: [],
       error: '',
-      errorStatus: 0
+      errorStatus: 0,
+      errorImageURL: ''
     }
   }
 
@@ -34,18 +36,19 @@ componentDidMount(): void {
   fetchDogData()
   .then(data => this.setState({dogs: data}))
   .catch(error => this.getErrorCode(error.message))
+
+  // fetchErrorImage(this.state.errorStatus)
+  // .then(data => console.log(data))
 }
 
 getErrorCode = (error: string) => {
   const errorString = error.slice(0,3)
     const errorInteger = parseInt(errorString)
     this.setState({...this.state, error: error, errorStatus: errorInteger })
-    
+    fetchErrorImage(errorInteger)
+    .then(data => this.setState({...this.state, errorImageURL: data}))
   }
   
-//   showError = () => {
-//     this.state.error && fetchErrorImage(this.state.errorStatus)
-// }
 
   onFavorite = (id: number) => {
     this.setState({...this.state, favorites: [...this.state.favorites, id]})
@@ -66,9 +69,9 @@ getErrorCode = (error: string) => {
           <NavLink to = '/matches'>Matches</NavLink>
           {/* <NavLink to = '/favorites'>Favorites</NavLink> */}
         </nav>
-          {this.state.error && <img src='https://justcors.com/l_j7i8ay4pgok/https://http.dog/404.jpg'></img>}
+          {/* {this.state.error && <h2 className='error-message'>{this.state.error}</h2>} */}
         <Switch>
-          <Route path='/error' render={() => <Error codeNumber={this.state.errorStatus} />}/>
+          <Route path='/error' render={() => <Error message={this.state.error} url={this.state.errorImageURL} />}/>
           <Route exact path='/'>
             {this.state.error ? <Redirect to='/error' /> : <FeaturedDogs dogs={this.state.dogs} /> }
           </Route>
