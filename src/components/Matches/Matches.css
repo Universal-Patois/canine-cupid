@@ -2,3 +2,29 @@
     height: 2vh;
     width: 2vw;
 }
+.matches-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.matches-swiper {
+    width: 50vw;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+
+.dog-image {
+    height: 45vh;
+    width: 45vh;
+}
+
+.dog-name {
+    font-size: 4vh;
+}
