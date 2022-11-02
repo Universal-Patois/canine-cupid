@@ -127,12 +127,11 @@ class App extends Component<{}, appState> {
             render={() => (
               <Matches
                 filteredDogs={this.state.filteredDogs}
-                favorites = {this.favorites}
+                favorites = {this.state.favorites}
                 onToggleFavorite={this.onToggleFavorite}
               />
             )}
           />
-          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
           <Route exact
            path='/favorites' 
            render={() => (
@@ -140,6 +139,7 @@ class App extends Component<{}, appState> {
             />
            )}
           /> 
+         <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );
