@@ -17,7 +17,6 @@ const Favorites = ({favoriteDogs, onToggleFavorite}: {favoriteDogs: dogData[]; o
           )
         })
 
-
     return (
         <div className="favorite-dogs-container">
             {showFavoriteDogs}

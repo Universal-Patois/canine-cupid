@@ -1,42 +1,27 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { dogData } from "../../utilities/interfaces";
+import Dog from '../Dog/Dog'
 import { Navigation, Mousewheel, Keyboard, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./Matches.css";
-import info from "../../assets/info.png";
-import animal from "../../assets/info.png";
 
-const Matches = ({
-  filteredDogs,
-  onFavorite,
-}: {
-  filteredDogs: dogData[];
-  onFavorite: (id: number) => void;
-}) => {
-  const handleClick = (event: any) => {
-    onFavorite(event.target.getAttribute("data-id"));
-  };
-
+const Matches = ({filteredDogs, favorites, onToggleFavorite}: {filteredDogs: dogData[]; favorites: number[]; onToggleFavorite: (id: number, wasFavorite: boolean) => void}): any => {
   const createSwiperSlides = () => {
     let matchedDogs = filteredDogs.map((dog) => {
       return (
         <SwiperSlide className="swiper-slide" key={dog.id}>
-          <img src={dog.image.url} alt="dog" className="dog-image" />
-          <h2 className="dog-name">{dog.name}</h2>
-          <div className="icons">
-            <img src={info} alt="information" className="info-image" />
-            <img
-              src={animal}
-              alt="favorite"
-              data-id={dog.id}
-              className="favorite-image"
-              onClick={handleClick}
-            />
-          </div>
+           <Dog 
+            key={dog.id}
+            image = {dog.image.url}
+            breed = {dog.name}
+            id = {dog.id}
+            isFavorite= {favorites.includes(dog.id)}
+            onToggleFavorite = {onToggleFavorite}
+          />
         </SwiperSlide>
       );
     });
