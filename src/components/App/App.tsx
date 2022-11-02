@@ -20,7 +20,6 @@ type appState = {
   errorImageURL: string;
 };
 
-
 class App extends Component<{}, appState> {
   constructor(props: Props) {
     super(props);
@@ -121,7 +120,7 @@ class App extends Component<{}, appState> {
               <div className="home-page">
                 <MoodForm
                   // dogs={this.state.dogs}
-                  // filterDogsByTemperament={this.filterDogsByTemperament}
+                  filterDogsByTemperament={this.filterDogsByTemperament}
                 />
                 <FeaturedDogs
                   dogs={this.featureableDogs()}

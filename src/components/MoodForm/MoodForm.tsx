@@ -85,11 +85,14 @@ import MoodCard from "../MoodCard/MoodCard";
 
 // type filterDogsByTemperament = Function;
 
-class MoodForm extends Component<{}, moodState, { props: Function }> {
-  constructor(props: Function) {
-    super(props);
-    console.log(this.props);
-    this.state = {
+class MoodForm extends Component<
+{filterDogsByTemperament: Function},
+  moodState
+> {
+  // constructor(props: Props) {
+  //   super(props);
+    // console.log(this.props);
+    state: moodState = {
       debator: {
         name: "The Defender",
         description:
@@ -240,7 +243,7 @@ class MoodForm extends Component<{}, moodState, { props: Function }> {
         traits: [""],
       },
     };
-  }
+  // }
 
   selectedDog = (personality: personalityState) => {
     this.setState({ chosenPersonality: personality });
@@ -265,9 +268,9 @@ class MoodForm extends Component<{}, moodState, { props: Function }> {
         <Link to="/matches">
           <button
             className="submit-button"
-            // onClick={() =>
-            //   this.props.filterDogsByTemperament(this.state.chosenPersonality)
-            // }
+            onClick={() =>
+              this.props.filterDogsByTemperament(this.state.chosenPersonality)
+            }
           >
             Find A Match!
           </button>
