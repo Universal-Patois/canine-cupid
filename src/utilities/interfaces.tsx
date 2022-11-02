@@ -28,3 +28,13 @@ export interface dogData {
 export interface Props {
   dogs: dogData[]
 }
+
+export interface moodState {
+  debator: { name: string; description: string; traits: string[] };
+  athlete: { name: string; description: string; traits: string[] };
+  commander: { name: string; description: string; traits: string[] };
+  virtuoso: { name: string; description: string; traits: string[] };
+  entertainer: { name: string; description: string; traits: string[] };
+  mediator: { name: string; description: string; traits: string[] };
+  defender: { name: string; description: string; traits: string[] };
+}
