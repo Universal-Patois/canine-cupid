@@ -1,21 +1,11 @@
 .mood-form {  
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     background: #783937;
     color: white;
+    align-items: center;
 }
 
-.mood-buttons {
-    display: flex;
-    padding: .5vw
-}
-
-.mood-form-checkbox {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 2vw;
-}
 
 .submit-button {
     margin: .5vw;
@@ -26,6 +16,12 @@
     color: white
 }
 
-input {
-    border-radius: .3vw
+.mood-container {
+  
+    display: flex;
+    flex-wrap: wrap;
+ 
+    justify-content: center;
+   
+    justify-content: space-between;
 }

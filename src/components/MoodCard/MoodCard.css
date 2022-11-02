@@ -1,0 +1,10 @@
+.mood-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    width: 15vw;
+    background-color: #F1AC88;
+    margin: 3vw;
+    padding: .5vw;
+}

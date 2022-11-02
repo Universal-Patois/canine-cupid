@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { fetchDogData, fetchErrorImage } from "../../utilities/apiCalls";
-import { Props, dogData } from "../../utilities/interfaces";
+import { Props, dogData, personalityState } from "../../utilities/interfaces";
 import FeaturedDogs from "../FeaturedDogs/FeaturedDogs";
 import Matches from "../Matches/Matches";
 import Favorites from "../Favorites/Favorites";
@@ -19,6 +19,7 @@ type appState = {
   errorStatus: number;
   errorImageURL: string;
 };
+
 
 class App extends Component<{}, appState> {
   constructor(props: Props) {
@@ -74,10 +75,10 @@ class App extends Component<{}, appState> {
     });
   };
 
-  filterDogsByTemperament = (checkedMoods: string[]) => {
+  filterDogsByTemperament = (personality: personalityState) => {
     let filterDogs: dogData[] = [];
     this.state.dogs.forEach((dog: dogData) => {
-      checkedMoods.forEach((mood: string) => {
+      personality.traits.forEach((mood: string) => {
         if (dog.temperament !== undefined && dog.temperament.includes(mood)) {
           filterDogs.push(dog);
         }
@@ -119,8 +120,8 @@ class App extends Component<{}, appState> {
             ) : (
               <div className="home-page">
                 <MoodForm
-                // dogs={this.state.dogs}
-                // filterDogsByTemperament={this.filterDogsByTemperament}
+                  // dogs={this.state.dogs}
+                  // filterDogsByTemperament={this.filterDogsByTemperament}
                 />
                 <FeaturedDogs
                   dogs={this.featureableDogs()}

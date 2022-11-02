@@ -1,8 +1,13 @@
-import { Props, dogData, moodState } from "../../utilities/interfaces";
+import {
+  Props,
+  dogData,
+  moodState,
+  personalityState,
+} from "../../utilities/interfaces";
 import "./MoodForm.css";
 import { Link } from "react-router-dom";
 import { Component } from "react";
-import MoodCard from "../../MoodCard/MoodCard";
+import MoodCard from "../MoodCard/MoodCard";
 
 // const MoodForm = ({
 //   dogs,
@@ -78,9 +83,12 @@ import MoodCard from "../../MoodCard/MoodCard";
 //   defender: { name: string; description: string; traits: string[] };
 // }
 
-class MoodForm extends Component<{}, moodState> {
-  constructor(props: Props) {
+// type filterDogsByTemperament = Function;
+
+class MoodForm extends Component<{}, moodState, { props: Function }> {
+  constructor(props: Function) {
     super(props);
+    console.log(this.props);
     this.state = {
       debator: {
         name: "The Defender",
@@ -226,23 +234,45 @@ class MoodForm extends Component<{}, moodState> {
           "Proud",
         ],
       },
+      chosenPersonality: {
+        name: "",
+        description: "",
+        traits: [""],
+      },
     };
   }
 
+  selectedDog = (personality: personalityState) => {
+    this.setState({ chosenPersonality: personality });
+    console.log("HELLO");
+  };
+
   render() {
     const personalityKeys = Object.keys(this.state);
-    personalityKeys.map((personality: string) => {
-      <MoodCard personality={this.state[personality as keyof moodState]} />;
+    const allPersonalities = personalityKeys.map((personality: string) => {
+      return (
+        <MoodCard
+          personality={this.state[personality as keyof moodState]}
+          selectDog={this.selectedDog}
+        />
+      );
     });
+    // console.log(this.props.filterDogsByTemperament);
     return (
-      <Link to="/matches">
-        <button
-          className="submit-button"
-          // onClick={() => filterDogsByTemperament(checkedMoods)}
-        >
-          Find A Match!
-        </button>
-      </Link>
+      <div className="mood-form">
+        <h2>Choose A Personality</h2>
+        <div className="mood-container">{allPersonalities}</div>
+        <Link to="/matches">
+          <button
+            className="submit-button"
+            // onClick={() =>
+            //   this.props.filterDogsByTemperament(this.state.chosenPersonality)
+            // }
+          >
+            Find A Match!
+          </button>
+        </Link>
+      </div>
     );
   }
 }
