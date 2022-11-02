@@ -3,7 +3,9 @@
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    border: 1px solid #292566;
+    /* border: 1px solid #292566; */
+    border: 1px solid #F1AC88;
+    margin: .5vw;
   }
 
 .dog-image {
@@ -14,6 +16,14 @@
   .dog-name {
     background-color: 
     #FC766A;
-  
     font-size: smaller;
   }
+
+
+.individual-featured-dog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #F1AC88;
+}
