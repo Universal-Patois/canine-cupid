@@ -1,38 +1,13 @@
-.featured {
-  background-color: #F1AC88;
-}
-
 .featured-dogs-container {
-/* display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr ; */
-  border-width:2px;
-  border-style:solid;
-  /* border-color:red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #783937;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 3vw
-}
-
-
-.individual-featured-dog {
+  padding: 20px;
+  grid-gap: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  border: 1px solid #F1AC88;
-  margin: .5vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3vw;
 }
 
-.dog-image {
-  width: 6rem;
-  height: 6rem
-}
 
-.dog-name {
-  background-color: 
-  #FC766A;
-
-  font-size: smaller;
-}

@@ -1,0 +1,19 @@
+.individual-featured-dog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #F1AC88;
+    margin: .5vw;
+  }
+
+.featured-dog-image {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  .dog-name {
+    background-color: 
+    #FC766A;
+    font-size: smaller;
+  }

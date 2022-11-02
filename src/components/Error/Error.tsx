@@ -6,7 +6,7 @@ const Error = ({message, url}: {message: string, url: string}) => {
     <div className="error-container">
       <h2>{message}</h2>
       <img
-        alt='error image'
+        alt='error dog'
         className="error-image"
         src={url}
         ></img>
