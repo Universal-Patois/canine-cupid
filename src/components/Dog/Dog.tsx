@@ -1,13 +1,13 @@
 import React from "react";
 import './Dog.css'
 
-const Dog = ({image, breed, id, onFavorite}: { image: string; breed: string; id: number; onFavorite: (id: number) => void }) => {
+const Dog = ({image, breed, id, onToggleFavorite, isFavorite}: { image: string; breed: string; id: number; onToggleFavorite: (id: number, wasFavorite: boolean) => void; isFavorite: boolean }) => {
 
   return (
     <section className="individual-featured-dog">
-      <img alt="dog" className="featured-dog">{image}</img>
+      <img alt="dog" className="featured-dog-image" src={image}/>
       <h3 className="dog-breed">{breed}</h3>
-      <button onClick = {() => onFavorite(id)}>Favorite</button>
+      <button onClick = {() => onToggleFavorite(id, isFavorite)}>{isFavorite ? "Favorite" : "UnFavorite"}</button>
     </section>
   )
 }

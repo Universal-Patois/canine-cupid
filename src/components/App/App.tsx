@@ -3,9 +3,8 @@ import { fetchDogData, fetchErrorImage } from "../../utilities/apiCalls";
 import { Props, dogData } from "../../utilities/interfaces";
 import FeaturedDogs from "../FeaturedDogs/FeaturedDogs";
 import Matches from "../Matches/Matches";
-// import Favorites from '../Favorites/Favorites'
+import Favorites from "../Favorites/Favorites"
 import MoodForm from "../MoodForm/MoodForm";
-import Dog from "../Dog/Dog";
 import Error from "../Error/Error";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
@@ -49,9 +48,26 @@ class App extends Component<{}, appState> {
     );
   };
 
-  onFavorite = (id: number) => {
+  onToggleFavorite = (id: number, wasFavorite: boolean) => {
+    if(!wasFavorite) {
     this.setState({ ...this.state, favorites: [...this.state.favorites, id] });
-  };
+    } else {
+    const filteredFavorites = this.state.favorites.filter((favoriteId: number) => favoriteId !== id)
+    this.setState({ ...this.state, favorites: filteredFavorites});
+    }
+  }
+
+  favoriteDogs = () => {
+    return this.state.dogs.filter((dog: dogData) => {
+      return this.state.favorites.includes(dog.id)
+    })
+  }
+
+  featureableDogs = () => {
+    return this.state.dogs.filter((dog: dogData) => {
+      return !this.state.favorites.includes(dog.id)
+    })
+  }
 
   filterDogsByTemperament = (checkedMoods: string[]) => {
     let filterDogs: dogData[] = [];
@@ -78,8 +94,8 @@ class App extends Component<{}, appState> {
           <div className="links">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/matches">Matches</NavLink>
+            <NavLink to="/favorites">Favorites</NavLink>
           </div>
-          {/* <NavLink to = '/favorites'>Favorites</NavLink> */}
         </nav>
         {/* {this.state.error && <h2 className='error-message'>{this.state.error}</h2>} */}
         <Switch>
@@ -101,7 +117,7 @@ class App extends Component<{}, appState> {
                   dogs={this.state.dogs}
                   filterDogsByTemperament={this.filterDogsByTemperament}
                 />
-                <FeaturedDogs dogs={this.state.dogs} onFavorite={this.onFavorite} />
+                <FeaturedDogs dogs={this.featureableDogs()} onToggleFavorite={this.onToggleFavorite} />
               </div>
             )}
           </Route>
@@ -111,22 +127,19 @@ class App extends Component<{}, appState> {
             render={() => (
               <Matches
                 filteredDogs={this.state.filteredDogs}
-                onFavorite={this.onFavorite}
+                favorites = {this.favorites}
+                onToggleFavorite={this.onToggleFavorite}
               />
             )}
           />
           <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-          {/* <Route
-            exact
-            path="/matches"
-            render={() => (
-              <Matches
-                filteredDogs={this.state.filteredDogs}
-                onFavorite={this.onFavorite}
-              />
-            )}
-          /> */}
-          {/* <Route exact path='/favorites' render={() => <Favorites favoriteDogs={this.state.favorites} />}/> */}
+          <Route exact
+           path='/favorites' 
+           render={() => (
+            <Favorites favoriteDogs={this.favoriteDogs()} onToggleFavorite={this.onToggleFavorite}
+            />
+           )}
+          /> 
         </Switch>
       </main>
     );

@@ -1,18 +1,13 @@
-.featured {
-  background-color: #F1AC88;
-}
-
 .featured-dogs-container {
-/* display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr ; */
-  border-width:2px;
-  border-style:solid;
-  /* border-color:red; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: #783937;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 3vw
+  padding: 20px;
+  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3vw;
 }
 
 
