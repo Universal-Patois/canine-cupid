@@ -37,11 +37,10 @@ const MoodForm = ({
   });
   const moodForm = uniqueMoods.map((mood: string) => {
     return (
-      <div className="mood-buttons">
+      <div className="mood-buttons" key={mood}>
         <div>
           <input
             type="checkbox"
-            key={mood}
             value={mood}
             name={mood}
             onClick={(e) => handleChange(e)}
