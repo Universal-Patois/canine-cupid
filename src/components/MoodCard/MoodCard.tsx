@@ -13,7 +13,6 @@ const MoodCard = ({
     <div
       style={{ borderColor: `${personality.color}` }}
       className="mood-card"
-      key={personality.name}
       onClick={() => {
         selectDog(personality);
       }}

@@ -6,7 +6,7 @@ import Matches from "../Matches/Matches";
 import Favorites from "../Favorites/Favorites";
 import MoodForm from "../MoodForm/MoodForm";
 import Error from "../Error/Error";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";
@@ -95,13 +95,15 @@ class App extends Component<{}, appState> {
   render() {
     return (
       <main className="App">
-        <nav>
-          <div className="logo-title">
-            <img src={logo} className="logo" alt="canine cupid logo" />
-            <h1 className="app-title">Canine Cupid - A Wag Worthy Match</h1>
-          </div>
+        <nav className="nav">
+          <NavLink to="/" style={{ textDecoration: "none" }}>
+            <div className="logo-title">
+              <img src={logo} className="logo" alt="canine cupid logo" />
+              <h1 className="app-title">Canine Cupid - A Wag Worthy Match</h1>
+            </div>
+          </NavLink>
           <div className="links">
-            <NavLink to="/">Home</NavLink>
+            {/* <NavLink to="/">Home</NavLink> */}
             <Route exact path="/favorites">
               <NavLink to="/matches">Matches</NavLink>
             </Route>
