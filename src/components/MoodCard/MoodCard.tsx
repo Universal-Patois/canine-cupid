@@ -1,5 +1,6 @@
 import "./MoodCard.css";
 import { personalityState } from "../../utilities/interfaces";
+import React, { useState } from "react";
 
 const MoodCard = ({
   personality,
@@ -9,7 +10,14 @@ const MoodCard = ({
   selectDog: Function;
 }) => {
   return (
-    <div className="mood-card" onClick={() => selectDog(personality)}>
+    <div
+      style={{ borderColor: `${personality.color}` }}
+      className="mood-card"
+      key={personality.name}
+      onClick={() => {
+        selectDog(personality);
+      }}
+    >
       <h2>{personality.name}</h2>
       <p>{personality.description}</p>
     </div>

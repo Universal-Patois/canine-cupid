@@ -33,6 +33,7 @@ export interface personalityState {
   name: string;
   description: string;
   traits: string[];
+  color: string;
 }
 
 export interface moodState {

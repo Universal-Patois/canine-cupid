@@ -78,7 +78,11 @@ class App extends Component<{}, appState> {
     let filterDogs: dogData[] = [];
     this.state.dogs.forEach((dog: dogData) => {
       personality.traits.forEach((mood: string) => {
-        if (dog.temperament !== undefined && dog.temperament.includes(mood)) {
+        if (
+          dog.temperament !== undefined &&
+          dog.temperament.includes(mood) &&
+          !filterDogs.includes(dog)
+        ) {
           filterDogs.push(dog);
         }
       });
@@ -98,7 +102,9 @@ class App extends Component<{}, appState> {
           </div>
           <div className="links">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/matches">Matches</NavLink>
+            <Route exact path="/favorites">
+              <NavLink to="/matches">Matches</NavLink>
+            </Route>
             <NavLink to="/favorites">Favorites</NavLink>
           </div>
         </nav>
