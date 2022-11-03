@@ -11,6 +11,7 @@ import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";
 import DogInfo from "../DogInfo/DogInfo";
+import { match } from "assert";
 
 type appState = {
   dogs: [];
@@ -84,8 +85,10 @@ class App extends Component<{}, appState> {
     this.setState({ ...this.state, filteredDogs: filterDogs });
   };
 
-  seeDogInfo = () => {
-
+  seeDogInfo = (breed: string) => {
+    this.state.dogs.find((dog: dogData) => {
+      return dog.name === breed
+    })
   }
 
   render() {
@@ -144,7 +147,7 @@ class App extends Component<{}, appState> {
             />
            )}
           /> 
-         <Route exact path='/:breed' render={({ match }) => {return <DogInfo breed={match.params.breed} image={""} breedGroup={""} origin={""} bredFor={""} lifeSpan={""} imperialHeight={""} metricHeight={""} imperialWeight={""} metricWeight={""} temperament={""}/> }} />
+         <Route exact path='/:breed' render={({ match }) => {return <DogInfo breed={match.params.breed} dogs={this.state.dogs}/> }} />
          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
