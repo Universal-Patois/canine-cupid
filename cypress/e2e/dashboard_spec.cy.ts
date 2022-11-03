@@ -19,9 +19,16 @@ describe('dahsboard spec', () => {
     cy.get('h2').contains('Choose A Personality')
   })
   it('Should render personality cards that highlight when clicked on', () => {
-    cy.get(".mood-card > :nth-child(1)").contains('The Debator')
-    cy.get(".mood-card > :nth-child(1)").contains('Curious and strategic thinkers with a plan for everything who cannot resist an intellectual challenge')
-    // cy.get("div[class='mood-form']").click()
-
+    cy.get(".mood-form > :nth-child(2)").contains('The Athlete')
+   
+    cy.get(".mood-form > :nth-child(2)").contains('Always thinking on the move and ready for action')
+  .click()
+  cy.get(".mood-form > :nth-child(2)").should('have.css', 'border-color', 'rgb(255, 255, 255)')
+  })
+  it('Should have a find match button that takes the user to the matched page', () => {
+    cy.get('button[class="submit-button"]').click() .url().should('include', 'http://localhost:3000/matches')
+  })
+  it('Should show fatured dogs', () => {
+    cy.get('.featured-dogs-container > :nth:child(2)')
   })
 })
