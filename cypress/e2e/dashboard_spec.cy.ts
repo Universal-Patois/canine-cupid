@@ -26,10 +26,10 @@ describe('dahsboard spec', () => {
   cy.get(".mood-form > :nth-child(2)").should('have.css', 'border-color', 'rgb(255, 255, 255)')
   })
   it('Should have a find match button that takes the user to the matched page', () => {
-    cy.get('button[class="submit-button"]').click() .url().should('include', 'http://localhost:3000/matches')
+    cy.get('button[class="submit-button"]').click().url().should('include', 'http://localhost:3000/matches')
   })
   it('Should show featured dogs', () => {
-    cy.intercept('GET', 'http://localhost:3000', { body: {
+    cy.intercept('GET', 'https://api.thedogapi.com/v1/breeds', { body: [{
           weight: {
           imperial: "65 - 100",
           metric: "29 - 45"
@@ -50,20 +50,15 @@ describe('dahsboard spec', () => {
           width: 1023,
           height: 769,
           url: "https://cdn2.thedogapi.com/images/dW5UucTIW.jpg"
-          
           },
-      }
+      }]
     }).as('random-featured-dog')
-    // cy.get('.featured-dogs-container')
-    // .first()
-    // .within(() => {
-    //   cy.get('button').click
-    //   // .click()
-    // })
-    
+    cy.visit('http://localhost:3000')
     cy.get('.featured-dogs-container > :nth-child(1)')
     cy.wait('@random-featured-dog').get('h3').contains('Alaskan Malamute')
-      .get('button[class="favorite-button"]')
-      .click().contains('unfavorite')
+    .get('button[class="info-button"]')
+    .click().url().should('include', 'http://localhost:3000/Alaskan%20Malamute')
+      // .get('button[class="favorite-button"]')
+      // .click().contains('unfavorite')
   })
 })

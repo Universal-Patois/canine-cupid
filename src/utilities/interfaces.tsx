@@ -46,3 +46,17 @@ export interface moodState {
   defender: personalityState;
   chosenPersonality: personalityState;
 }
+
+export interface DogInformation {
+  image: string, 
+  breed: string, 
+  breedGroup: string, 
+  origin: string, 
+  bredFor: string, 
+  lifeSpan: string, 
+  imperialHeight: string, 
+  metricHeight: string,
+  imperialWeight: string, 
+  metricWeight: string,  
+  temperament: string
+}
