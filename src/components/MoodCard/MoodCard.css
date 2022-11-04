@@ -1,0 +1,15 @@
+.mood-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    width: 15rem;
+    background-color: #F1AC88;
+    margin: 3vw;
+    padding: .5vw;
+    flex-wrap: wrap;
+}
+
+.mood-card:hover {
+    transform: scale(1.1);
+  }

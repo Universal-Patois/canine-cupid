@@ -14,12 +14,12 @@ body {
   height: 100%;
 }
 
-nav {
+.nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
 }
+
 .logo-title {
   display: flex;
   align-items: center;
