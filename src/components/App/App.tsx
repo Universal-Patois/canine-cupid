@@ -52,10 +52,11 @@ class App extends Component<{}, appState> {
 
   onToggleFavorite = (id: number, wasFavorite: boolean) => {
     if (!wasFavorite) {
-      this.setState({
-        ...this.state,
-        favorites: [...this.state.favorites, id],
-      });
+      // this.setState({
+      //   ...this.state,
+      //   favorites: [...this.state.favorites, id],
+      // });
+      this.state.favorites.push(id);
     } else {
       const filteredFavorites = this.state.favorites.filter(
         (favoriteId: number) => favoriteId !== id
@@ -93,12 +94,6 @@ class App extends Component<{}, appState> {
 
     this.setState({ ...this.state, filteredDogs: filterDogs });
   };
-
-  seeDogInfo = (breed: string) => {
-    this.state.dogs.find((dog: dogData) => {
-      return dog.name === breed
-    })
-  }
 
   render() {
     return (
@@ -166,16 +161,26 @@ class App extends Component<{}, appState> {
               />
             )}
           />
-          <Route exact
-           path='/favorites' 
-           render={() => (
-            <Favorites favoriteDogs={this.favoriteDogs()} onToggleFavorite={this.onToggleFavorite}
-            />
-           )}
-          /> 
-         <Route exact path='/:breed' render={({ match }) => {return <DogInfo breed={match.params.breed} dogs={this.state.dogs}/> }} />
-         <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-
+          <Route
+            exact
+            path="/favorites"
+            render={() => (
+              <Favorites
+                favoriteDogs={this.favoriteDogs()}
+                onToggleFavorite={this.onToggleFavorite}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:breed"
+            render={({ match }) => {
+              return (
+                <DogInfo breed={match.params.breed} dogs={this.state.dogs} />
+              );
+            }}
+          />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );

@@ -9,7 +9,7 @@ const Dog = ({image, breed, id, onToggleFavorite, isFavorite}: { image: string; 
 
         <img alt="dog" className="featured-dog-image" src={image}/>
         <h3 className="dog-breed">{breed}</h3>
-        <button className='favorite-button'onClick = {() => onToggleFavorite(id, isFavorite)}>{isFavorite ? "Unfavorite" : "Favorite"}</button>
+        <button className='favorite-button'onClick = {() => {onToggleFavorite(id, isFavorite), isFavorite=true}}>{isFavorite ? "Unfavorite" : "Favorite"}</button>
         <Link to={`${breed}`}>
           <button className="info-button">Information</button>
         </Link>

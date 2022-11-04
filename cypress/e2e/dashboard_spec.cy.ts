@@ -56,9 +56,67 @@ describe('dahsboard spec', () => {
     cy.visit('http://localhost:3000')
     cy.get('.featured-dogs-container > :nth-child(1)')
     cy.wait('@random-featured-dog').get('h3').contains('Alaskan Malamute')
-    .get('button[class="info-button"]')
-    .click().url().should('include', 'http://localhost:3000/Alaskan%20Malamute')
-      // .get('button[class="favorite-button"]')
-      // .click().contains('unfavorite')
   })
+  it.only('Should have a fovrite button on the featured dog', () => {
+    cy.intercept('GET', 'https://api.thedogapi.com/v1/breeds', { body: [{
+          weight: {
+          imperial: "65 - 100",
+          metric: "29 - 45"
+          },
+          height: {
+          imperial: "23 - 25",
+          metric: "58 - 64"
+          },
+          id: 9,
+          name: "Alaskan Malamute",
+          bred_for: "Hauling heavy freight, Sled pulling",
+          breed_group: "Working",
+          life_span: "12 - 15 years",
+          temperament: "Friendly, Affectionate, Devoted, Loyal, Dignified, Playful",
+          reference_image_id: "dW5UucTIW",
+          image: {
+          id: "dW5UucTIW",
+          width: 1023,
+          height: 769,
+          url: "https://cdn2.thedogapi.com/images/dW5UucTIW.jpg"
+          },
+      }]
+    }).as('random-featured-dog')
+    cy.visit('http://localhost:3000')
+    cy.get('.featured-dogs-container > :nth-child(1)')
+    cy.wait('@random-featured-dog').get('button[class="favorite-button"]')
+    .click()
+   
+})
+it('Should have a info button on the featured dog', () => {
+  cy.intercept('GET', 'https://api.thedogapi.com/v1/breeds', { body: [{
+        weight: {
+        imperial: "65 - 100",
+        metric: "29 - 45"
+        },
+        height: {
+        imperial: "23 - 25",
+        metric: "58 - 64"
+        },
+        id: 9,
+        name: "Alaskan Malamute",
+        bred_for: "Hauling heavy freight, Sled pulling",
+        breed_group: "Working",
+        life_span: "12 - 15 years",
+        temperament: "Friendly, Affectionate, Devoted, Loyal, Dignified, Playful",
+        reference_image_id: "dW5UucTIW",
+        image: {
+        id: "dW5UucTIW",
+        width: 1023,
+        height: 769,
+        url: "https://cdn2.thedogapi.com/images/dW5UucTIW.jpg"
+        },
+    }]
+  }).as('random-featured-dog')
+  cy.visit('http://localhost:3000')
+  cy.get('.featured-dogs-container > :nth-child(1)')
+  cy.wait('@random-featured-dog')
+  .get('button[class="info-button"]')
+  .click().url().should('include', 'http://localhost:3000/Alaskan%20Malamute')
+})
 })
