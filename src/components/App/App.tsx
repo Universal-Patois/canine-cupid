@@ -11,7 +11,8 @@ import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";
 import DogInfo from "../DogInfo/DogInfo";
-import { match } from "assert";
+import unfavorited from "../../assets/unfavorite.png";
+import favorited from "../../assets/favorited.png";
 
 type appState = {
   dogs: [];
@@ -50,18 +51,19 @@ class App extends Component<{}, appState> {
     );
   };
 
-  onToggleFavorite = (id: number, wasFavorite: boolean) => {
-    if (!wasFavorite) {
-      // this.setState({
-      //   ...this.state,
-      //   favorites: [...this.state.favorites, id],
-      // });
-      this.state.favorites.push(id)
+  onToggleFavorite = (id: number, event: any) => {
+    if (event.target.src === unfavorited) {
+      event.target.src = favorited;
+      this.state.favorites.push(id);
     } else {
-      const filteredFavorites = this.state.favorites.filter(
-        (favoriteId: number) => favoriteId !== id
+      event.target.src = unfavorited;
+      const filteredFavorites: number[] = this.state.favorites.filter(
+        (favoriteId: number) => favoriteId === id
       );
-      this.setState({ ...this.state, favorites: filteredFavorites });
+      const indexOfUnfavorite = this.state.favorites.indexOf(
+        filteredFavorites[0]
+      );
+      this.state.favorites.splice(indexOfUnfavorite, 1);
     }
   };
 
@@ -130,7 +132,6 @@ class App extends Component<{}, appState> {
             ) : (
               <div className="home-page">
                 <MoodForm
-                  // dogs={this.state.dogs}
                   filterDogsByTemperament={this.filterDogsByTemperament}
                 />
                 <FeaturedDogs
@@ -161,16 +162,26 @@ class App extends Component<{}, appState> {
               />
             )}
           />
-          <Route exact
-           path='/favorites' 
-           render={() => (
-            <Favorites favoriteDogs={this.favoriteDogs()} onToggleFavorite={this.onToggleFavorite}
-            />
-           )}
-          /> 
-         <Route exact path='/:breed' render={({ match }) => {return <DogInfo breed={match.params.breed} dogs={this.state.dogs}/> }} />
-         <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-
+          <Route
+            exact
+            path="/favorites"
+            render={() => (
+              <Favorites
+                favoriteDogs={this.favoriteDogs()}
+                onToggleFavorite={this.onToggleFavorite}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/:breed"
+            render={({ match }) => {
+              return (
+                <DogInfo breed={match.params.breed} dogs={this.state.dogs} />
+              );
+            }}
+          />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );
