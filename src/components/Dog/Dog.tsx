@@ -4,9 +4,6 @@ import "./Dog.css";
 import unfavorited from "../../assets/unfavorite.png";
 import favorited from "../../assets/favorited.png";
 import infoIcon from "../../assets/info-icon.png";
-import { useState } from "react";
-import userEvent from "@testing-library/user-event";
-import { info } from "console";
 
 const Dog = ({
   image,
@@ -28,11 +25,12 @@ const Dog = ({
       <div className="image-and-info">
         <img
           className="favorite-image"
+          alt="heart icon"
           onClick={(event) => onToggleFavorite(id, event)}
           src={isFavorite ? favorited : unfavorited}
         />
         <Link to={`${breed}`}>
-          <img className="info-icon" src={infoIcon} />
+          <img className="info-icon" src={infoIcon} alt="info icon"/>
         </Link>
       </div>
     </section>

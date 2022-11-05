@@ -6,7 +6,7 @@ import Matches from "../Matches/Matches";
 import Favorites from "../Favorites/Favorites";
 import MoodForm from "../MoodForm/MoodForm";
 import Error from "../Error/Error";
-import { Route, Switch, Redirect, Link } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";

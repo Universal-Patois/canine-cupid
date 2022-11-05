@@ -185,6 +185,7 @@ class MoodForm extends Component<
           <MoodCard
             personality={this.state[personality as keyof moodState]}
             selectDog={this.selectedDog}
+            key={personality}
           />
         );
       }
