@@ -17,3 +17,16 @@
     #FC766A;
     font-size: smaller;
   }
+
+  .favorite-image, .info-icon {
+    height: 1.5rem;
+    width: 2rem;
+  }
+
+  .favorite-image {
+    margin-right: 1rem;
+  }
+
+  .info-icon {
+    margin-left: 1rem;
+  }
