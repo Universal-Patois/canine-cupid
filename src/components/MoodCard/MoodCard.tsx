@@ -1,6 +1,6 @@
 import "./MoodCard.css";
 import { personalityState } from "../../utilities/interfaces";
-import React, { useState } from "react";
+import React from "react";
 
 const MoodCard = ({
   personality,

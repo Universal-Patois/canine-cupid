@@ -9,8 +9,8 @@ class MoodForm extends Component<
   moodState
 > {
   state: moodState = {
-    debator: {
-      name: "The Debator",
+    debater: {
+      name: "The Debater",
       description:
         "Curious and strategic thinkers with a plan for everything who cannot resist an intellectual challenge",
       traits: [
@@ -72,7 +72,8 @@ class MoodForm extends Component<
     },
     virtuoso: {
       name: "The Virtuoso",
-      description: "Spontaneous and energetic extrovert who loves other people",
+      description:
+        "Quiet and mystical tinkerers, who enjoys a good book and cats",
       traits: [
         "Diligent",
         "Cat-like",
@@ -117,7 +118,7 @@ class MoodForm extends Component<
     },
     mediator: {
       name: "The Mediator",
-      description: "Poetic, kind, altruisitic people eager to help others",
+      description: "Poetic, kind, altruistic people eager to help others",
       traits: [
         "Companionable",
         "Affectionate",
@@ -185,6 +186,7 @@ class MoodForm extends Component<
           <MoodCard
             personality={this.state[personality as keyof moodState]}
             selectDog={this.selectedDog}
+            key={personality}
           />
         );
       }

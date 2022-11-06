@@ -6,7 +6,7 @@ import Matches from "../Matches/Matches";
 import Favorites from "../Favorites/Favorites";
 import MoodForm from "../MoodForm/MoodForm";
 import Error from "../Error/Error";
-import { Route, Switch, Redirect, Link } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";
@@ -51,20 +51,19 @@ class App extends Component<{}, appState> {
     );
   };
 
+
   onToggleFavorite = (id: number, event: any) => {
     if (event.target.src === unfavorited) {
       event.target.src = favorited;
-      this.state.favorites.push(id);
+      this.setState({...this.state, favorites: [...this.state.favorites, id]});
     } else {
       event.target.src = unfavorited;
       const filteredFavorites: number[] = this.state.favorites.filter(
-        (favoriteId: number) => favoriteId === id
+        (favoriteId: number) => favoriteId !== id
       );
-      const indexOfUnfavorite = this.state.favorites.indexOf(
-        filteredFavorites[0]
-      );
-      this.state.favorites.splice(indexOfUnfavorite, 1);
+      this.setState({...this.state, favorites: filteredFavorites});
     }
+    console.log(event.target.src)
   };
 
   favoriteDogs = () => {
@@ -112,7 +111,9 @@ class App extends Component<{}, appState> {
             <Route exact path="/favorites">
               <NavLink to="/matches">Matches</NavLink>
             </Route>
-            <NavLink to="/favorites">Favorites</NavLink>
+            <Route exact path ="/matches">
+              <NavLink to="/favorites">Favorites</NavLink>
+            </Route>
           </div>
         </nav>
         <Switch>
