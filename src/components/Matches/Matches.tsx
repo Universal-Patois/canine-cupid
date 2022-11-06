@@ -30,6 +30,7 @@ const Matches = ({filteredDogs, favorites, onToggleFavorite}: {filteredDogs: dog
   return (
     <div className="matches-container">
       <h1 className="matches-header">Your Matches:</h1>
+      {filteredDogs.length > 0 &&
       <section className="matches-swiper">
         <Swiper
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
@@ -43,6 +44,8 @@ const Matches = ({filteredDogs, favorites, onToggleFavorite}: {filteredDogs: dog
           {createSwiperSlides()}
         </Swiper>
       </section>
+      }
+      {filteredDogs.length === 0 && <h2>Sorry! We lost your matches. Please click the logo at the top to go back home.</h2>}
     </div>
   );
 };

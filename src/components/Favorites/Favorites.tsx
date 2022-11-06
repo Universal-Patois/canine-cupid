@@ -19,7 +19,9 @@ const Favorites = ({favoriteDogs, onToggleFavorite}: {favoriteDogs: dogData[]; o
 
     return (
         <div className="favorite-dogs-container">
-            {showFavoriteDogs}
+            <h1 className="favorites-header">Favorite Dogs:</h1>
+            {favoriteDogs.length > 0 && showFavoriteDogs}
+            {favoriteDogs.length === 0 && <h2>You have no favorite dogs at this time, go find a new match!</h2>}
         </div>
     )
 }
