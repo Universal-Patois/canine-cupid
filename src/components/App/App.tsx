@@ -106,13 +106,10 @@ class App extends Component<{}, appState> {
             </div>
           </NavLink>
           <div className="links">
-            {/* <NavLink to="/">Home</NavLink> */}
             <Route exact path="/favorites">
               <NavLink to="/matches">Matches</NavLink>
             </Route>
-            <Route exact path ="/matches">
-              <NavLink to="/favorites">Favorites</NavLink>
-            </Route>
+            <NavLink to="/favorites">Favorites</NavLink>
           </div>
         </nav>
         <Switch>
@@ -147,16 +144,6 @@ class App extends Component<{}, appState> {
               <Matches
                 filteredDogs={this.state.filteredDogs}
                 favorites={this.state.favorites}
-                onToggleFavorite={this.onToggleFavorite}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/favorites"
-            render={() => (
-              <Favorites
-                favoriteDogs={this.favoriteDogs()}
                 onToggleFavorite={this.onToggleFavorite}
               />
             )}
