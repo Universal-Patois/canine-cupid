@@ -3,7 +3,6 @@ import { dogData } from "../../utilities/interfaces";
 import Dog from "../Dog/Dog";
 import "./FeaturedDogs.css";
 
-
 const FeaturedDogs = ({
   dogs,
   onToggleFavorite,
@@ -12,7 +11,6 @@ const FeaturedDogs = ({
   onToggleFavorite: (id: number, event: any) => void;
 }): any => {
   const randomDogs = dogs.sort(() => 0.5 - Math.random()).slice(0, 8);
- 
 
   const showFeaturedDogs = randomDogs.map((dog: dogData) => {
     return (

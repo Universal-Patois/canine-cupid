@@ -51,6 +51,7 @@ class App extends Component<{}, appState> {
     );
   };
 
+
   onToggleFavorite = (id: number, event: any) => {
     if (event.target.src === unfavorited) {
       event.target.src = favorited;
@@ -62,6 +63,7 @@ class App extends Component<{}, appState> {
       );
       this.setState({...this.state, favorites: filteredFavorites});
     }
+    console.log(event.target.src)
   };
 
   favoriteDogs = () => {
