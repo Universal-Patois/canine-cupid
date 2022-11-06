@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { dogData } from "../../utilities/interfaces";
 
 const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
@@ -50,9 +50,9 @@ const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
       {selectedDog?.temperament && (
         <h3 className="temperament">Temperament: {selectedDog.temperament}</h3>
       )}
-      <Link to="/">
-        <button>Back</button>
-      </Link>
+      <NavLink to="/">
+        <button className="back-button">Back</button>
+      </NavLink>
     </section>
   );
 };
