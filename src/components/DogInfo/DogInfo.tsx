@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { dogData } from "../../utilities/interfaces";
+import './DogInfo.css'
 
 const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
   const selectedDog = dogs.find((dog: { name: string }) => dog.name === breed);
