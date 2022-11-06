@@ -63,7 +63,6 @@ class App extends Component<{}, appState> {
       );
       this.setState({...this.state, favorites: filteredFavorites});
     }
-    console.log(event.target.src)
   };
 
   favoriteDogs = () => {
@@ -172,7 +171,6 @@ class App extends Component<{}, appState> {
               />
             )}
           />
-          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
           <Route
             exact
             path="/:breed"
@@ -182,6 +180,7 @@ class App extends Component<{}, appState> {
               );
             }}
           />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );
