@@ -125,8 +125,7 @@ class App extends Component<{}, appState> {
                 Matches
               </NavLink>
             </Route>
-            <Route path="/matches">
-
+            <Route exact path={["/matches", "/"]}>
             <NavLink
               to="/favorites"
               style={{
