@@ -115,7 +115,6 @@ class App extends Component<{}, appState> {
             <NavLink to="/favorites">Favorites</NavLink>
           </div>
         </nav>
-        {/* {this.state.error && <h2 className='error-message'>{this.state.error}</h2>} */}
         <Switch>
           <Route
             path="/error"
@@ -172,6 +171,7 @@ class App extends Component<{}, appState> {
               />
             )}
           />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
           <Route
             exact
             path="/:breed"
@@ -181,7 +181,6 @@ class App extends Component<{}, appState> {
               );
             }}
           />
-          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );
