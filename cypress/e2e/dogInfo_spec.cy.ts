@@ -5,6 +5,12 @@ describe('Dog info page', () => {
       cy.visit('http://localhost:3000/breeds/Affenpinscher')
     })
   })
+
+  it('should have the App header and nav links', () => {
+    cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
+    cy.contains(".links", "Favorites");
+    cy.url().should("include", "/Affenpinscher");
+  });
   
   it('should contain an image of the dog', () => {
     cy.get('.dog-info-image').should('have.attr', 'src', 'https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg')
