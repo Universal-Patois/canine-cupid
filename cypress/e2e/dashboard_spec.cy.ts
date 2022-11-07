@@ -90,6 +90,6 @@ describe("Featured Dogs section", () => {
       .get('img[class="info-icon"]')
       .click()
       .url()
-      .should("include", "http://localhost:3000/Alaskan%20Malamute");
+      .should("include", "http://localhost:3000/breeds/Alaskan%20Malamute");
   });
 });

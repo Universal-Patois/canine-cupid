@@ -11,8 +11,12 @@ describe("Matched Dog Page spec", () => {
   it("should be able to visit the Matches page and see the App header, section header, and nav bar links", () => {
     cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
     cy.url().should("include", "/matches");
-    cy.contains(".links", "Favorites");
     cy.contains(".matches-header", "Your Matches:");
+  });
+
+  it("should be able to see nav link to Favorites and view page when clicked", () => {
+    cy.contains(".links", "Favorites").click()
+    cy.url().should("include", "/favorites")
   });
 
   it("should see a swiper carousel of dog card matches with the dogs picture, breed name, info icon, and favorite icon", () => {
