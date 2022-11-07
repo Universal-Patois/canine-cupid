@@ -73,7 +73,7 @@ class MoodForm extends Component<
     virtuoso: {
       name: "The Virtuoso",
       description:
-        "Quiet and mystical tinkerers, who enjoys a good book and cats",
+        "Quiet and mystical tinkerers, who enjoy a good book and cats",
       traits: [
         "Diligent",
         "Cat-like",

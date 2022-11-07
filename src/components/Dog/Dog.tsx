@@ -29,7 +29,7 @@ const Dog = ({
           onClick={(event) => onToggleFavorite(id, event)}
           src={isFavorite ? favorited : unfavorited}
         />
-        <Link to={`${breed}`}>
+        <Link to={`/breeds/${breed}`}>
           <img className="info-icon" src={infoIcon} alt="info icon"/>
         </Link>
       </div>

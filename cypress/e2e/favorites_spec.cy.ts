@@ -1,6 +1,6 @@
 describe("Favorite Dogs Page spec", () => {
   beforeEach(() => {
-    cy.fixture("dogs").then((json) => {
+    cy.fixture("dogData").then((json) => {
       cy.intercept("GET", "https://api.thedogapi.com/v1/breeds", json);
       cy.visit("http://localhost:3000");
       cy.get(".mood-container").contains("h2", "The Defender").click();
@@ -14,8 +14,8 @@ describe("Favorite Dogs Page spec", () => {
 
   it("should be able to visit the Favorites page and see the App header, section header, and nav bar links", () => {
     cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
-    cy.contains(".links", "Matches");
     cy.contains(".favorites-header", "Favorite Dogs:");
+    cy.contains(".links", "Matches")
     cy.url().should("include", "/favorites");
   });
 
@@ -24,17 +24,17 @@ describe("Favorite Dogs Page spec", () => {
     cy.get(".featured-dog-image").should(
       "have.attr",
       "src",
-      "https://cdn2.thedogapi.com/images/rJIakgc4m.jpg"
+      "https://cdn2.thedogapi.com/images/rkiByec47.jpg"
     );
-    cy.get(".dog-breed").contains("American Staffordshire Terrier");
+    cy.get(".dog-breed").contains("African Hunting Dog");
     cy.get(".featured-dog-image")
       .eq(1)
       .should(
         "have.attr",
         "src",
-        "https://cdn2.thedogapi.com/images/SkmRJl9VQ.jpg"
+        "https://cdn2.thedogapi.com/images/26pHT3Qk7.jpg"
       );
-    cy.get(".dog-breed").eq(1).contains("American Water Spaniel");
+    cy.get(".dog-breed").eq(1).contains("Akbash Dog");
   });
 
   it("should be able to unfavorite a dog by clicking the heart icon and remove it from the list", () => {
@@ -42,15 +42,15 @@ describe("Favorite Dogs Page spec", () => {
     cy.get(".featured-dog-image").should(
       "have.attr",
       "src",
-      "https://cdn2.thedogapi.com/images/SkmRJl9VQ.jpg"
+      "https://cdn2.thedogapi.com/images/26pHT3Qk7.jpg"
     );
-    cy.get(".dog-breed").contains("American Water Spaniel");
+    cy.get(".dog-breed").contains("Akbash Dog");
     cy.get(".favorite-dogs-container").should("have.length", 1);
   });
 
   it("should be able to visit the dog info page when info icon is clicked on dog card", () => {
     cy.get(".info-icon").first().click();
-    cy.url().should("include", "/American%20Staffordshire%20Terrier");
+    cy.url().should("include", "/African%20Hunting%20Dog");
   });
 
   it("should display a message to user if there are no favorites in the list", () => {

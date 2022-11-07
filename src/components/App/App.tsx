@@ -46,9 +46,9 @@ class App extends Component<{}, appState> {
     const errorString = error.slice(0, 3);
     const errorInteger = parseInt(errorString);
     this.setState({ ...this.state, error: error, errorStatus: errorInteger });
-    fetchErrorImage(errorInteger).then((data: string) =>
+    fetchErrorImage(errorInteger).then((data: string) => {
       this.setState({ ...this.state, errorImageURL: data })
-    );
+  });
   };
 
 
@@ -63,7 +63,6 @@ class App extends Component<{}, appState> {
       );
       this.setState({...this.state, favorites: filteredFavorites});
     }
-    console.log(event.target.src)
   };
 
   favoriteDogs = () => {
@@ -107,13 +106,10 @@ class App extends Component<{}, appState> {
             </div>
           </NavLink>
           <div className="links">
-            {/* <NavLink to="/">Home</NavLink> */}
             <Route exact path="/favorites">
               <NavLink to="/matches">Matches</NavLink>
             </Route>
-            <Route exact path ="/matches">
-              <NavLink to="/favorites">Favorites</NavLink>
-            </Route>
+            <NavLink to="/favorites">Favorites</NavLink>
           </div>
         </nav>
         <Switch>
@@ -121,7 +117,6 @@ class App extends Component<{}, appState> {
             path="/error"
             render={() => (
               <Error
-                message={this.state.error}
                 url={this.state.errorImageURL}
               />
             )}
@@ -163,25 +158,14 @@ class App extends Component<{}, appState> {
             )}
           />
           <Route
-            exact
-            path="/favorites"
-            render={() => (
-              <Favorites
-                favoriteDogs={this.favoriteDogs()}
-                onToggleFavorite={this.onToggleFavorite}
-              />
-            )}
-          />
-          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
-          <Route
-            exact
-            path="/:breed"
+            exact path="/breeds/:breed"
             render={({ match }) => {
               return (
                 <DogInfo breed={match.params.breed} dogs={this.state.dogs} />
               );
             }}
           />
+          <Route render={() => <Redirect to={{ pathname: "/" }} />} />
         </Switch>
       </main>
     );
