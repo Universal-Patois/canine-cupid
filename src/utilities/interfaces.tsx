@@ -37,7 +37,7 @@ export interface personalityState {
 }
 
 export interface moodState {
-  debator: personalityState;
+  debater: personalityState;
   athlete: personalityState;
   commander: personalityState;
   virtuoso: personalityState;

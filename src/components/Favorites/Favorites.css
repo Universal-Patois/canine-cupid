@@ -4,4 +4,12 @@
     background-color: #cc6367;
     align-items: center;
     justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.favorite-dogs {
+    display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
 }

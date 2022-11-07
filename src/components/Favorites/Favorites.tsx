@@ -22,8 +22,17 @@ const Favorites = ({
       />
     );
   });
-
-  return <div className="favorite-dogs-container">{showFavoriteDogs}</div>
+  return (
+    <div className="favorite-dogs-container">
+      <h1 className="favorites-header">Favorite Dogs:</h1>
+      <div className="favorite-dogs">
+        {favoriteDogs.length > 0 && showFavoriteDogs}
+        {favoriteDogs.length === 0 && (
+          <h2>You have no favorite dogs at this time, go find a new match!</h2>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Favorites;

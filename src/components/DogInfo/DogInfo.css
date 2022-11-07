@@ -1,3 +1,4 @@
+
 .dog-info-container {
     display: flex;
     flex-direction: column;
@@ -12,5 +13,11 @@
         border-radius: .6rem;
         padding: .3rem;
         border-color: #c52728
+}
+
+
+.dog-info-image {
+  height: 40rem;
+  width: 40rem
 }
 

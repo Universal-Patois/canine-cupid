@@ -6,7 +6,7 @@ import Matches from "../Matches/Matches";
 import Favorites from "../Favorites/Favorites";
 import MoodForm from "../MoodForm/MoodForm";
 import Error from "../Error/Error";
-import { Route, Switch, Redirect, Link } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "../../assets/canine-cupid_logo.png";
@@ -46,26 +46,22 @@ class App extends Component<{}, appState> {
     const errorString = error.slice(0, 3);
     const errorInteger = parseInt(errorString);
     this.setState({ ...this.state, error: error, errorStatus: errorInteger });
-    fetchErrorImage(errorInteger).then((data: string) =>
+    fetchErrorImage(errorInteger).then((data: string) => {
       this.setState({ ...this.state, errorImageURL: data })
-    );
+  });
   };
 
   onToggleFavorite = (id: number, event: any) => {
     if (event.target.src === unfavorited) {
       event.target.src = favorited;
-      this.state.favorites.push(id);
+      this.setState({...this.state, favorites: [...this.state.favorites, id]});
     } else {
       event.target.src = unfavorited;
       const filteredFavorites: number[] = this.state.favorites.filter(
-        (favoriteId: number) => favoriteId === id
+        (favoriteId: number) => favoriteId !== id
       );
-      const indexOfUnfavorite = this.state.favorites.indexOf(
-        filteredFavorites[0]
-      );
-      this.state.favorites.splice(indexOfUnfavorite, 1);
+      this.setState({...this.state, favorites: filteredFavorites});
     }
-    console.log(event.target.src);
   };
 
   favoriteDogs = () => {
@@ -109,7 +105,6 @@ class App extends Component<{}, appState> {
             </div>
           </NavLink>
           <div className="links">
-            {/* <NavLink to="/">Home</NavLink> */}
             <Route exact path="/favorites">
               <NavLink
                 to="/matches"
@@ -142,13 +137,11 @@ class App extends Component<{}, appState> {
             </Route>
           </div>
         </nav>
-        {/* {this.state.error && <h2 className='error-message'>{this.state.error}</h2>} */}
         <Switch>
           <Route
             path="/error"
             render={() => (
               <Error
-                message={this.state.error}
                 url={this.state.errorImageURL}
               />
             )}
@@ -190,18 +183,7 @@ class App extends Component<{}, appState> {
             )}
           />
           <Route
-            exact
-            path="/favorites"
-            render={() => (
-              <Favorites
-                favoriteDogs={this.favoriteDogs()}
-                onToggleFavorite={this.onToggleFavorite}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/:breed"
+            exact path="/breeds/:breed"
             render={({ match }) => {
               return (
                 <DogInfo breed={match.params.breed} dogs={this.state.dogs} />

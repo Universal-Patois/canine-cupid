@@ -1,10 +1,10 @@
 import React from "react";
 import './Error.css'
 
-const Error = ({message, url}: {message: string, url: string}) => {
+const Error = ({url}: { url: string}) => {
   return (
     <div className="error-container">
-      <h2>{message}</h2>
+      <h2 className="error-message">Oops! Try again.</h2>
       <img
         alt='error dog'
         className="error-image"
