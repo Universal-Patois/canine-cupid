@@ -46,9 +46,9 @@ class App extends Component<{}, appState> {
     const errorString = error.slice(0, 3);
     const errorInteger = parseInt(errorString);
     this.setState({ ...this.state, error: error, errorStatus: errorInteger });
-    fetchErrorImage(errorInteger).then((data: string) =>
+    fetchErrorImage(errorInteger).then((data: string) => {
       this.setState({ ...this.state, errorImageURL: data })
-    );
+  });
   };
 
 
@@ -117,7 +117,6 @@ class App extends Component<{}, appState> {
             path="/error"
             render={() => (
               <Error
-                message={this.state.error}
                 url={this.state.errorImageURL}
               />
             )}

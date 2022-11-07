@@ -5,8 +5,8 @@ describe("Error handling", () => {
       { statusCode: 500 }
     );
     cy.visit("http://localhost:3000/");
-    cy.get(".error-message").contains("500:function text() { [native code] }");
-    cy.get(".error-image").should("be.visible");
+    cy.get(".error-message").contains("Oops! Try again.");
+    cy.get(".error-image").should("have.attr", "src", 'https://justcors.com/l_j7i8ay4pgok/https://http.dog/500.jpg');
   });
 
   it("should show an image if there is a 404 error", () => {
@@ -15,8 +15,8 @@ describe("Error handling", () => {
       { statusCode: 404 }
     );
     cy.visit("http://localhost:3000/");
-    cy.get(".error-message").contains("404:function text() { [native code] }");
-    cy.get(".error-image").should("be.visible");
+    cy.get(".error-message").contains("Oops! Try again.");
+    cy.get(".error-image").should('have.attr', 'src', 'https://justcors.com/l_j7i8ay4pgok/https://http.dog/404.jpg');
   });
 
   it("should show an image for any error", () => {
@@ -25,8 +25,8 @@ describe("Error handling", () => {
       { statusCode: 400 }
     );
     cy.visit("http://localhost:3000/");
-    cy.get(".error-image").should("be.visible");
-    cy.get(".error-message").contains("400:function text() { [native code] }");
+    cy.get(".error-message").contains("Oops! Try again.");
+    cy.get(".error-image").should('have.attr', 'src', 'https://justcors.com/l_j7i8ay4pgok/https://http.dog/400.jpg');
   });
 
   it("should redirect the user to the homepage if a bad URL is typed", () => {
