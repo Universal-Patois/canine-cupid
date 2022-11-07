@@ -9,7 +9,7 @@ import Error from "../Error/Error";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
-import logo from "../../assets/canine-cupid_logo.png";
+import logo from "../../assets/paw.png";
 import DogInfo from "../DogInfo/DogInfo";
 import unfavorited from "../../assets/unfavorite.png";
 import favorited from "../../assets/favorited.png";
@@ -101,7 +101,8 @@ class App extends Component<{}, appState> {
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <div className="logo-title">
               <img src={logo} className="logo" alt="canine cupid logo" />
-              <h1 className="app-title">Canine Cupid - A Wag Worthy Match</h1>
+              <h1 className="app-title">Canine Cupid</h1>
+              <h4 className="subheader">· A Wag Worthy Match ·</h4>
             </div>
           </NavLink>
           <div className="links">
@@ -114,7 +115,7 @@ class App extends Component<{}, appState> {
                   backgroundColor: "#c52728",
                   borderRadius: ".6rem",
                   padding: ".3rem",
-                  margin: '.5rem',
+                  marginRight: ".8rem",
                 }}
               >
                 Matches

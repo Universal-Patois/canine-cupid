@@ -8,6 +8,12 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 3vw;
+  width: 80%;
+}
+
+.individual-featured-dog {
+  background-color: white;
+  border-radius: 8px;
 }
 
 

@@ -8,16 +8,32 @@
 
 
 .submit-button {
-    margin: .5vw;
+    margin: 1rem;
     border-radius: 1vw;
-    padding: .5vw;
-    border: #c52728;
+    padding: .8vw;
+    background: #e5a9b0;
+    color: black;
+    border: 1px solid #cc6367;
+}
+
+.submit-button:hover {
+    cursor: pointer;
     background: #c52728;
-    color: #e5a9b0
+    color: #e5a9b0;
 }
 
 .mood-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    background-image: url('../../assets/love-dog-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 80%;
+}
+
+.choose-header {
+    font-family: 'Lobster', cursive;
+    color: white;
+    font-size: 3vh;
 }
