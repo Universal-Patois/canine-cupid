@@ -1,12 +1,13 @@
 describe('Dog info page', () => {
   beforeEach(() => {
-    cy.intercept('http://localhost:3000', { fixture: 'dogInfo_fixture.json'})
-    cy.visit('http://localhost:3000/Affenpinscher')
+    cy.fixture("dogInfo_fixture").then((json) => {
+      cy.intercept("GET", "https://api.thedogapi.com/v1/breeds", json)
+      cy.visit('http://localhost:3000/breeds/Affenpinscher')
+    })
   })
   
   it('should contain an image of the dog', () => {
-    cy.get('.dog-info-container')
-    .find('img').should('be.visible')
+    cy.get('.dog-info-image').should('have.attr', 'src', 'https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg')
   })
   
   it('should contain information on the dog breed', () => {
