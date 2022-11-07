@@ -51,7 +51,6 @@ class App extends Component<{}, appState> {
   });
   };
 
-
   onToggleFavorite = (id: number, event: any) => {
     if (event.target.src === unfavorited) {
       event.target.src = favorited;
@@ -107,9 +106,35 @@ class App extends Component<{}, appState> {
           </NavLink>
           <div className="links">
             <Route exact path="/favorites">
-              <NavLink to="/matches">Matches</NavLink>
+              <NavLink
+                to="/matches"
+                style={{
+                  color: "#e5a9b0",
+                  textDecoration: "none",
+                  backgroundColor: "#c52728",
+                  borderRadius: ".6rem",
+                  padding: ".3rem",
+                  margin: '.5rem',
+                }}
+              >
+                Matches
+              </NavLink>
             </Route>
-            <NavLink to="/favorites">Favorites</NavLink>
+            <Route exact path={["/matches", "/"]}>
+            <NavLink
+              to="/favorites"
+              style={{
+                color: "#e5a9b0",
+                textDecoration: "none",
+                backgroundColor: "#c52728",
+                borderRadius: ".6rem",
+                padding: ".3rem",
+                margin: '.5rem',
+              }}
+            >
+              Favorites
+            </NavLink>
+            </Route>
           </div>
         </nav>
         <Switch>

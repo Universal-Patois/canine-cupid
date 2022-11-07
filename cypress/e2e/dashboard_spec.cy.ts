@@ -1,3 +1,4 @@
+export {}
 describe("Personality Card Dashboard", () => {
   beforeEach(() => {
     cy.intercept("https://api.thedogapi.com/v1/breeds", {
@@ -31,7 +32,7 @@ describe("Personality Card Dashboard", () => {
     cy.get(".mood-form > :nth-child(2)").should(
       "have.css",
       "border-color",
-      "rgb(255, 255, 255)"
+      "rgb(228, 172, 179)"
     );
   });
   it("should have a find matches button that takes the user to the matched page", () => {

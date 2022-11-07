@@ -4,10 +4,11 @@
     align-items: center;
     border: 1px solid;
     width: 15rem;
-    background-color: #F1AC88;
+    background-color: #e5a9b0;
     margin: 3vw;
     padding: .5vw;
     flex-wrap: wrap;
+    color: #cc6367;
 }
 
 .mood-card:hover {

@@ -1,8 +1,8 @@
 .mood-form {  
     display: flex;
     flex-direction: column;
-    background: #783937;
-    color: white;
+    background: #cc6367;
+    color: #E4AcB3;
     align-items: center;
 }
 
@@ -11,9 +11,9 @@
     margin: .5vw;
     border-radius: 1vw;
     padding: .5vw;
-    border: #FC766A;
-    background: #FC766A;
-    color: white
+    border: #c52728;
+    background: #c52728;
+    color: #e5a9b0
 }
 
 .mood-container {

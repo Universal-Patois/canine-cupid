@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { dogData } from "../../utilities/interfaces";
 import './DogInfo.css'
 
@@ -7,10 +7,11 @@ const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
   if (selectedDog) {
   return (
     <section className="dog-info-container">
-      <img alt="dog" className="dog-info-image" src={selectedDog?.image.url} />
       {selectedDog?.breed_group && (
-        <h2 className="dog-breed-info">Breed: {breed}</h2>
+        <h2 className="dog-breed-info">{breed}</h2>
       )}
+      <img alt="dog" className="dog-info-image" src={selectedDog?.image.url} />
+      
       {selectedDog?.breed_group && (
         <h3 className="breed-group">Breed Group: {selectedDog.breed_group}</h3>
       )}
@@ -52,9 +53,9 @@ const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
       {selectedDog?.temperament && (
         <h3 className="temperament">Temperament: {selectedDog.temperament}</h3>
       )}
-      <Link to="/">
-        <button>Back</button>
-      </Link>
+      <NavLink to="/">
+        <button className="back-button">Back</button>
+      </NavLink>
     </section>
   );
   } else {

@@ -1,4 +1,23 @@
+
+.dog-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #cc6367;
+    padding-top: 1rem;
+}
+.back-button {
+        color: #e5a9b0;
+        text-decoration: "none";
+        background-color: #c52728;
+        border-radius: .6rem;
+        padding: .3rem;
+        border-color: #c52728
+}
+
+
 .dog-info-image {
   height: 40rem;
   width: 40rem
 }
+
