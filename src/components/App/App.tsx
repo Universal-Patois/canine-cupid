@@ -159,8 +159,7 @@ class App extends Component<{}, appState> {
             )}
           />
           <Route
-            exact
-            path="/:breed"
+            exact path="/breeds/:breed"
             render={({ match }) => {
               return (
                 <DogInfo breed={match.params.breed} dogs={this.state.dogs} />

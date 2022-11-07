@@ -4,6 +4,7 @@ import './DogInfo.css'
 
 const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
   const selectedDog = dogs.find((dog: { name: string }) => dog.name === breed);
+  if (selectedDog) {
   return (
     <section className="dog-info-container">
       <img alt="dog" className="dog-info-image" src={selectedDog?.image.url} />
@@ -56,6 +57,11 @@ const DogInfo = ({ breed, dogs }: { breed: string; dogs: dogData[] }) => {
       </Link>
     </section>
   );
+  } else {
+    return (
+    <h2>No dog info available!</h2>
+    )
+  }
 };
 
 export default DogInfo;
