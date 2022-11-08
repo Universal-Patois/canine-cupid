@@ -7,8 +7,8 @@ describe('Dog info page', () => {
   })
 
   it('should have the App header and nav links', () => {
-    cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
-    cy.contains(".links", "Favorites")
+    cy.contains(".app-title", "Canine Cupid");
+    cy.contains("h4", "· A Wag Worthy Match ·");
     cy.url().should("include", "/Affenpinscher");
   });
   

@@ -1,4 +1,4 @@
-export {}
+export {};
 describe("Personality Card Dashboard", () => {
   beforeEach(() => {
     cy.intercept("https://api.thedogapi.com/v1/breeds", {
@@ -7,9 +7,10 @@ describe("Personality Card Dashboard", () => {
       .visit("http://localhost:3000")
       .as("dogs");
   });
-  it("should render a title that links to the homepage", () => {
+  it("should see a title and subheading that links to the homepage", () => {
+    cy.contains("h4", "· A Wag Worthy Match ·");
     cy.get("h1")
-      .contains("Canine Cupid - A Wag Worthy Match")
+      .contains("Canine Cupid")
       .click()
       .url()
       .should("include", "http://localhost:3000");
@@ -21,18 +22,17 @@ describe("Personality Card Dashboard", () => {
       .should("include", "http://localhost:3000/favorites");
   });
   it("should render a personality section header", () => {
-    cy.get("h2").contains("Choose A Personality");
+    cy.get("h2").contains("Choose Your Human Personality");
   });
-  it("should render personality cards that highlight when clicked on", () => {
-    cy.get(".mood-form > :nth-child(2)").contains("The Athlete");
 
-    cy.get(".mood-form > :nth-child(2)")
-      .contains("Always thinking on the move and ready for action")
-      .click();
-    cy.get(".mood-form > :nth-child(2)").should(
-      "have.css",
-      "border-color",
-      "rgb(228, 172, 179)"
+  it("should render personality cards with a title and description", () => {
+    cy.get(".mood-form > :nth-child(2)").contains("The Athlete");
+    cy.get(".mood-form > :nth-child(2)").contains(
+      "Always thinking on the move and ready for action"
+    );
+    cy.get(".mood-form").contains("The Debater");
+    cy.get(".mood-form").contains(
+      "Curious and strategic thinkers with a plan for everything who cannot resist an intellectual challenge"
     );
   });
   it("should have a find matches button that takes the user to the matched page", () => {
@@ -75,6 +75,9 @@ describe("Featured Dogs section", () => {
     }).as("random-featured-dog");
     cy.visit("http://localhost:3000");
   });
+  it("should have a section header for Featured Dogs", () => {
+    cy.contains("h2", "Featured Dogs");
+  });
 
   it("should show random featured dogs", () => {
     cy.get(".featured-dogs-container > :nth-child(1)");
@@ -83,7 +86,8 @@ describe("Featured Dogs section", () => {
   it("should have a favorite button on the featured dog that adds the dog to favorites", () => {
     cy.get(".featured-dogs-container > :nth-child(1)");
     cy.wait("@random-featured-dog")
-      .get('img[class="favorite-image"]').should('be.visible')
+      .get('img[class="favorite-image"]')
+      .should("be.visible");
   });
   it("should have a info button on the dog card that once clicked takes user to dog info page", () => {
     cy.get(".featured-dogs-container > :nth-child(1)");
