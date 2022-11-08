@@ -1,23 +1,45 @@
-.mood-form {  
-    display: flex;
-    flex-direction: column;
-    background: #cc6367;
-    color: #E4AcB3;
-    align-items: center;
+.mood-form {
+  display: flex;
+  flex-direction: column;
+  background: #eb5569;
+  color: #e4acb3;
+  align-items: center;
+  width: 90%;
+  border-radius: 8px;
 }
 
-
 .submit-button {
-    margin: .5vw;
-    border-radius: 1vw;
-    padding: .5vw;
-    border: #c52728;
-    background: #c52728;
-    color: #e5a9b0
+  margin: 1rem;
+  border-radius: 1vw;
+  padding: 0.8vw;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  background: black;
+  color: white;
+  border: 1px solid white;
 }
 
 .mood-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-image: url("../../assets/love-dog-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90%;
+}
+
+.choose-header {
+  font-family: "Lobster", cursive;
+  color: white;
+  font-size: 2rem;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }

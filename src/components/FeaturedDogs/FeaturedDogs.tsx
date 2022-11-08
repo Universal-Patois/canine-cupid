@@ -25,7 +25,10 @@ const FeaturedDogs = ({
     );
   });
 
-  return <div className="featured-dogs-container">{showFeaturedDogs}</div>;
+  return <div className="featured-dogs-container">
+    <h2 className ="featured-dogs-header">Featured Dogs</h2>
+      <div className="featured-dog-cards">{showFeaturedDogs}</div>
+      </div>;
 };
 
 export default FeaturedDogs;

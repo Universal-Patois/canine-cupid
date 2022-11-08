@@ -1,15 +1,23 @@
 .favorite-dogs-container {
     display: flex;
-    flex-wrap: wrap;
-    background-color: #cc6367;
-    align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: #EB5569;
+    border-radius: 8px;
 }
 
 .favorite-dogs {
-    display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.favorites-header {
+  font-family: 'Lobster', cursive;
+  text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  -1px -1px 0 #FFF;
 }

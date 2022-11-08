@@ -2,15 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 8px;
     width: 15rem;
-    background-color: #e5a9b0;
+    background-color: #F2919E;
     margin: 3vw;
     padding: .5vw;
     flex-wrap: wrap;
-    color: #cc6367;
+    color: #374f58;
+    font-family: 'Comfortaa', cursive;
 }
 
 .mood-card:hover {
     transform: scale(1.1);
+    cursor: pointer;
+    background-color: #EB5569;
+    color: white;
   }
+
+.personality-name {
+    font-family: 'Lobster', cursive;
+    color: black;
+}  

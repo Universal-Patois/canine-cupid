@@ -1,16 +1,15 @@
 html {
-  background-color: #e5a9b0;
-  height: 100%;
+  background-color: white;
+  height: 100vh;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Comfortaa", cursive;
 }
-
-
 
 .nav {
   display: flex;
@@ -25,16 +24,33 @@ html {
 }
 
 .logo {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
+  margin-left: 2rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .app-title {
-  color: #c52728;
+  color: #e53950;
+  font-family: "Lobster", cursive;
+  font-size: 5vh;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.subheader {
+  font-family: "Lobster", cursive;
+  color: #4b6f77;
+  font-size: 1.5rem;
 }

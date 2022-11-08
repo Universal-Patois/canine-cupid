@@ -17,7 +17,7 @@ const MoodCard = ({
         selectDog(personality);
       }}
     >
-      <h2>{personality.name}</h2>
+      <h2 className="personality-name">{personality.name}</h2>
       <p>{personality.description}</p>
     </div>
   );

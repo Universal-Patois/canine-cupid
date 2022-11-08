@@ -27,7 +27,7 @@ class MoodForm extends Component<
         "Even-tempered",
         "Alert",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     athlete: {
       name: "The Athlete",
@@ -47,7 +47,7 @@ class MoodForm extends Component<
         "Spirited",
         "Strong",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     commander: {
       name: "The Commander",
@@ -68,7 +68,7 @@ class MoodForm extends Component<
         "Stubborn",
         "Strong willed",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     virtuoso: {
       name: "The Virtuoso",
@@ -90,7 +90,7 @@ class MoodForm extends Component<
         "Gentle",
         "Aloof",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     entertainer: {
       name: "The Entertainer",
@@ -114,7 +114,7 @@ class MoodForm extends Component<
         "Joyful",
         "Clownish",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     mediator: {
       name: "The Mediator",
@@ -135,7 +135,7 @@ class MoodForm extends Component<
         "Great-hearted",
         "Sweet-tempered",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     defender: {
       name: "The Defender",
@@ -157,7 +157,7 @@ class MoodForm extends Component<
         "Faithful",
         "Proud",
       ],
-      color: "#FC766A",
+      color: "#EB5569",
     },
     chosenPersonality: {
       name: "",
@@ -170,11 +170,11 @@ class MoodForm extends Component<
   selectedDog = (personality: personalityState) => {
     const personalityKeys = Object.keys(this.state);
     personalityKeys.forEach((personality: string) => {
-      if (this.state[personality as keyof moodState].color === "yellow") {
-        this.state[personality as keyof moodState].color = "#FC766A";
+      if (this.state[personality as keyof moodState].color === "black") {
+        this.state[personality as keyof moodState].color = "#EB5569";
       }
     });
-    personality.color = "yellow";
+    personality.color = "black";
     this.setState({ chosenPersonality: personality });
   };
 
@@ -193,7 +193,7 @@ class MoodForm extends Component<
     });
     return (
       <div className="mood-form">
-        <h2>Choose A Personality</h2>
+        <h2 className = "choose-header">Choose Your Human Personality</h2>
         <div className="mood-container">{allPersonalities}</div>
         <Link to="/matches">
           <button
@@ -202,7 +202,7 @@ class MoodForm extends Component<
               this.props.filterDogsByTemperament(this.state.chosenPersonality)
             }
           >
-            Find A Match!
+            Find A Dog Match
           </button>
         </Link>
       </div>

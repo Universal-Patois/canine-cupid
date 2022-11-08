@@ -9,7 +9,7 @@ import Error from "../Error/Error";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import "./App.css";
-import logo from "../../assets/canine-cupid_logo.png";
+import logo from "../../assets/paw.png";
 import DogInfo from "../DogInfo/DogInfo";
 import unfavorited from "../../assets/unfavorite.png";
 import favorited from "../../assets/favorited.png";
@@ -101,7 +101,8 @@ class App extends Component<{}, appState> {
           <NavLink to="/" style={{ textDecoration: "none" }}>
             <div className="logo-title">
               <img src={logo} className="logo" alt="canine cupid logo" />
-              <h1 className="app-title">Canine Cupid - A Wag Worthy Match</h1>
+              <h1 className="app-title">Canine Cupid</h1>
+              <h4 className="subheader">· A Wag Worthy Match ·</h4>
             </div>
           </NavLink>
           <div className="links">
@@ -109,12 +110,12 @@ class App extends Component<{}, appState> {
               <NavLink
                 to="/matches"
                 style={{
-                  color: "#e5a9b0",
+                  color: "white",
                   textDecoration: "none",
-                  backgroundColor: "#c52728",
+                  backgroundColor: "#E53950",
                   borderRadius: ".6rem",
-                  padding: ".3rem",
-                  margin: '.5rem',
+                  padding: ".5rem",
+                  marginRight: "2rem",
                 }}
               >
                 Matches
@@ -124,12 +125,12 @@ class App extends Component<{}, appState> {
             <NavLink
               to="/favorites"
               style={{
-                color: "#e5a9b0",
+                color: "white",
                 textDecoration: "none",
-                backgroundColor: "#c52728",
+                backgroundColor: "#E53950",
                 borderRadius: ".6rem",
-                padding: ".3rem",
-                margin: '.5rem',
+                padding: ".5rem",
+                marginRight: '2rem',
               }}
             >
               Favorites
@@ -176,17 +177,21 @@ class App extends Component<{}, appState> {
             exact
             path="/favorites"
             render={() => (
+              <div className="home-page">
               <Favorites
                 favoriteDogs={this.favoriteDogs()}
                 onToggleFavorite={this.onToggleFavorite}
               />
+              </div>
             )}
           />
           <Route
             exact path="/breeds/:breed"
             render={({ match }) => {
               return (
+                <div className="home-page">
                 <DogInfo breed={match.params.breed} dogs={this.state.dogs} />
+                </div>
               );
             }}
           />
