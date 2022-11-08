@@ -29,12 +29,12 @@ const Matches = ({filteredDogs, favorites, onToggleFavorite}: {filteredDogs: dog
   };
   return (
     <div className="matches-container">
-      <h1 className="matches-header">Your Matches:</h1>
+      <h1 className="matches-header">Your Dog Matches</h1>
       {filteredDogs.length > 0 &&
       <section className="matches-swiper">
         <Swiper
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-          slidesPerView={1}
+          slidesPerView={3}
           pagination={{ clickable: true }}
           navigation={true}
           keyboard={true}

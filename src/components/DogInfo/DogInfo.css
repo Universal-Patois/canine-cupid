@@ -1,23 +1,85 @@
-
 .dog-info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #cc6367;
-    padding-top: 1rem;
-}
-.back-button {
-        color: #e5a9b0;
-        text-decoration: "none";
-        background-color: #c52728;
-        border-radius: .6rem;
-        padding: .3rem;
-        border-color: #c52728
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #4b6f77;
+  padding-top: 1rem;
+  width: 70%;
+  border-radius: 8px;
+  margin-bottom: 3rem;
 }
 
+.traits-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 80%;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.back-button {
+  margin: 1rem;
+  border-radius: 1vw;
+  padding: 0.8vw;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
 
 .dog-info-image {
-  height: 40rem;
-  width: 40rem
+  height: 30rem;
+  width: 40rem;
+  border: 2px solid white;
+  border-radius: 8px;
 }
 
+.dog-breed-info {
+  font-weight: bold;
+  color: white;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.height-section {
+  margin-right: 3rem;
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  border: 1px solid black;
+}
+
+.weight-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-left: 3rem;
+  border: 1px solid black;
+}
+
+.temperament {
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

@@ -24,7 +24,7 @@ const Favorites = ({
   });
   return (
     <div className="favorite-dogs-container">
-      <h1 className="favorites-header">Favorite Dogs:</h1>
+      <h1 className="favorites-header">Favorite Dogs</h1>
       <div className="favorite-dogs">
         {favoriteDogs.length > 0 && showFavoriteDogs}
         {favoriteDogs.length === 0 && (

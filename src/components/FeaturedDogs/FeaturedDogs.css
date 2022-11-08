@@ -1,14 +1,22 @@
 .featured-dogs-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #537983;
+  width: 90%;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vw;
+}
+
+.featured-dog-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  background-color: #cc6367;
+  grid-template-columns: repeat(4, 1fr);
   padding: 20px;
   grid-gap: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 3vw;
-  width: 80%;
 }
 
 .individual-featured-dog {
@@ -16,4 +24,11 @@
   border-radius: 8px;
 }
 
-
+.featured-dogs-header {
+  color: black;
+  text-shadow: -1px 1px 0 #FFF, 1px 1px 0 #FFF, 1px -1px 0 #FFF,
+  -1px -1px 0 #FFF;
+  font-family: "Lobster", cursive;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}

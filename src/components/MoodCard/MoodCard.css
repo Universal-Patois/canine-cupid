@@ -6,18 +6,18 @@
     border: 2px solid;
     border-radius: 8px;
     width: 15rem;
-    background-color: #e5a9b0;
+    background-color: #F2919E;
     margin: 3vw;
     padding: .5vw;
     flex-wrap: wrap;
-    color: #4F6C77;
-    font-family: 'Source Sans Pro', sans-serif;
+    color: #374f58;
+    font-family: 'Comfortaa', cursive;
 }
 
 .mood-card:hover {
     transform: scale(1.1);
     cursor: pointer;
-    background-color: #cc6367;
+    background-color: #EB5569;
     color: white;
   }
 
