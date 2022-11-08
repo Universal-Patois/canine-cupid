@@ -45,7 +45,7 @@ const Matches = ({filteredDogs, favorites, onToggleFavorite}: {filteredDogs: dog
         </Swiper>
       </section>
       }
-      {filteredDogs.length === 0 && <h2>Sorry! We lost your matches. Please click the logo at the top to go back home.</h2>}
+      {filteredDogs.length === 0 && <h2>Sorry! We lost your matches. Please click the logo at the top to go home.</h2>}
     </div>
   );
 };

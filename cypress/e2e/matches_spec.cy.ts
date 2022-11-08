@@ -9,14 +9,15 @@ describe("Matched Dog Page spec", () => {
   });
 
   it("should be able to visit the Matches page and see the App header, section header, and nav bar links", () => {
-    cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
+    cy.contains(".app-title", "Canine Cupid");
+    cy.contains("h4", "· A Wag Worthy Match ·");
     cy.url().should("include", "/matches");
-    cy.contains(".matches-header", "Your Matches:");
+    cy.contains(".matches-header", "Your Dog Matches");
   });
 
   it("should be able to see nav link to Favorites and view page when clicked", () => {
-    cy.contains(".links", "Favorites").click()
-    cy.url().should("include", "/favorites")
+    cy.contains(".links", "Favorites").click();
+    cy.url().should("include", "/favorites");
   });
 
   it("should see a swiper carousel of dog card matches with the dogs picture, breed name, info icon, and favorite icon", () => {
@@ -54,7 +55,10 @@ describe("Matched Dog Page spec", () => {
   });
 
   it("should display a message to the user when matches are lost upon page refresh", () => {
-    cy.reload()
-    cy.contains("h2", "Sorry! We lost your matches. Please click the logo at the top to go back home.")
+    cy.reload();
+    cy.contains(
+      "h2",
+      "Sorry! We lost your matches. Please click the logo at the top to go home."
+    );
   });
 });

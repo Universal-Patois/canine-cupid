@@ -13,8 +13,9 @@ describe("Favorite Dogs Page spec", () => {
   });
 
   it("should be able to visit the Favorites page and see the App header, section header, and nav bar links", () => {
-    cy.contains(".app-title", "Canine Cupid - A Wag Worthy Match");
-    cy.contains(".favorites-header", "Favorite Dogs:");
+    cy.contains(".app-title", "Canine Cupid");
+    cy.contains("h4", "· A Wag Worthy Match ·");
+    cy.contains(".favorites-header", "Favorite Dogs");
     cy.contains(".links", "Matches")
     cy.url().should("include", "/favorites");
   });
